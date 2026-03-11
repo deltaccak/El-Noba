@@ -65,86 +65,8 @@
     /* ──────────────────────────────────────────────────────────
       NAV MODERNO & FLOTANTE
    ────────────────────────────────────────────────────────── */
-nav {
-  position: fixed;
-  top: 20px; 
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 1100px;
-  z-index: 1000;
-  height: 68px;
-  padding: 0 2rem;
-  
-  /* CAMBIO CLAVE: Usamos Grid para 3 secciones iguales */
-  display: grid;
-  grid-template-columns: 1fr auto 1fr; /* [Logo] [Links] [Espacio/CTA] */
-  align-items: center;
 
-  background: rgba(15, 15, 15, 0.7); 
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 100px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-/* Efecto al hacer scroll (puedes activarlo con JS añadiendo una clase) */
-nav.scrolled {
-  top: 10px;
-  width: 95%;
-  background: rgba(10, 10, 10, 0.95);
-}
-
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: -0.02em; /* Un poco más apretado se ve más premium */
-  color: #fff; /* El blanco resalta más que el amarillo en logos modernos */
-  text-decoration: none;
-}
-
-.nav-logo span {
-  color: var(--yellow); /* Si quieres resaltar una parte */
-}
-
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  align-items: center;
-}
-
-.nav-links a {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 500;
-    align-items: center;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-}
-
-/* Hover con sutil fondo pastoso */
-.nav-links a:hover {
-  color: var(--yellow);
-  background: rgba(255, 212, 0, 0.05);
-}
-
-/* El botón de acción (opcional, para cerrar el diseño) */
-.nav-cta {
-  background: var(--yellow);
-  color: #000 !important;
-  padding: 10px 24px !important;
-  border-radius: 50px;
-  font-weight: 700 !important;
-}
     /* ──────────────────────────────────────────────────────────
        HERO
     ────────────────────────────────────────────────────────── */
@@ -965,35 +887,861 @@ nav.scrolled {
       margin-top: 1.5rem;
     }
 
-    /* ──────────────────────────────────────────────────────────
-       RESPONSIVE
-    ────────────────────────────────────────────────────────── */
-    @media (max-width: 860px) {
-      #quien,
-      .carrera-grid,
-      .tamo-inner,
-      #hija {
-        grid-template-columns: 1fr;
-      }
-      .amistades-grid { grid-template-columns: 1fr; }
-      .legado-grid    { grid-template-columns: 1fr 1fr; }
-      .carrera-img-wrap { order: 0; height: 340px; }
-      .quien-img-wrap,
-      .tamo-img-wrap,
-      .hija-img-wrap { height: 340px; }
-      .amistad-card { height: 380px; }
-      .stats-bar { flex-wrap: wrap; }
-      .stat-item { flex: 0 0 50%; }
-      .nav-links { display: none; }
-      .timeline-dates { flex-direction: column; gap: 1.5rem; }
-      .timeline-dates::before { display: none; }
-      .escudo-section { flex-direction: column; text-align: center; }
-    }
-    @media (max-width: 520px) {
-      .legado-grid { grid-template-columns: 1fr; }
-      .metrics-grid { grid-template-columns: 1fr; }
-      section { padding: 70px 5vw; }
-    }
+/* ═══════════════════════════════════════════════════════════════
+   EL NOBA — RESPONSIVE PERFECTAMENTE DISEÑADO
+   Breakpoints: 1200px · 960px · 768px · 580px · 400px
+   → Copiar y pegar al FINAL de styles.css, reemplazando el @media existente
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────────────────────────
+   1200px — DESKTOP GRANDE: ajustes finos de tipografía y grillas
+────────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .hero-name {
+    font-size: clamp(4rem, 13vw, 11rem);
+  }
+
+  .tamo-title {
+    font-size: clamp(3rem, 9vw, 7.5rem);
+  }
+
+  .legado-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .timeline-dates::before {
+    left: 10%;
+    right: 10%;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   960px — TABLET LANDSCAPE / DESKTOP ANGOSTO
+────────────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+
+  /* NAV */
+  nav {
+    top: 12px;
+    width: 94%;
+    height: 58px;
+    padding: 0 1.4rem;
+  }
+
+  .nav-links {
+    gap: 0.6rem;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+    padding: 6px 10px;
+  }
+
+  /* HERO */
+  #hero {
+    padding: 0 5vw 64px;
+    align-items: flex-end;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-name {
+    font-size: clamp(4.5rem, 14vw, 9rem);
+  }
+
+  .hero-quote {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    max-width: 100%;
+  }
+
+  /* QUIEN */
+  #quien {
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw;
+    padding: 80px 5vw;
+  }
+
+  .quien-img-wrap {
+    height: 460px;
+  }
+
+  /* CARRERA */
+  .carrera-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw;
+  }
+
+  .carrera-img-wrap {
+    height: 440px;
+  }
+
+  /* TAMO CHELO */
+  .tamo-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+  }
+
+  .tamo-img-wrap {
+    height: 480px;
+  }
+
+  .tamo-title {
+    font-size: clamp(2.8rem, 8vw, 6rem);
+  }
+
+  /* AMISTADES */
+  .amistades-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .amistad-card {
+    height: 440px;
+  }
+
+  /* HIJA */
+  #hija {
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw;
+  }
+
+  .hija-img-wrap {
+    height: 500px;
+  }
+
+  /* LEGADO */
+  .legado-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .escudo-section {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  /* STATS */
+  .stats-bar {
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    flex: 0 0 50%;
+  }
+
+  .stat-item:nth-child(2)::before,
+  .stat-item:nth-child(4)::before {
+    display: none;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   768px — TABLET PORTRAIT / MÓVIL GRANDE
+────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav {
+    top: 10px;
+    width: 92%;
+    height: 54px;
+    padding: 0 1.2rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .nav-links {
+    display: none; /* Se puede activar con hamburger JS si se desea */
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100svh;
+    padding: 0 5vw 56px;
+    align-items: flex-end;
+  }
+
+  .hero-name {
+    font-size: clamp(4rem, 18vw, 8rem);
+    line-height: 0.88;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.85rem, 3vw, 1.2rem);
+    letter-spacing: 0.18em;
+    margin-top: 0.5rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-quote {
+    font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+    max-width: 100%;
+    padding-left: 1rem;
+  }
+
+  /* SECCIONES — padding general */
+  section {
+    padding: 72px 5vw;
+  }
+
+  /* QUIÉN */
+  #quien {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 72px 5vw;
+  }
+
+  .quien-img-wrap {
+    height: 320px;
+    border-radius: var(--radius);
+  }
+
+  /* CARRERA */
+  #carrera {
+    padding: 72px 5vw;
+  }
+
+  .carrera-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .carrera-img-wrap {
+    order: -1;
+    height: 300px;
+    border-radius: var(--radius);
+  }
+
+  .timeline {
+    margin-top: 2rem;
+  }
+
+  .tl-text {
+    font-size: 0.92rem;
+  }
+
+  /* TAMO CHELO */
+  #tamo {
+    padding: 72px 5vw;
+  }
+
+  .tamo-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .tamo-img-wrap {
+    order: -1;
+    height: 300px;
+    border-radius: var(--radius);
+  }
+
+  .tamo-title {
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .metric-val {
+    font-size: 1.9rem;
+  }
+
+  /* AMISTADES */
+  #amistades {
+    padding: 72px 5vw;
+  }
+
+  .amistades-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .amistad-card {
+    height: 380px;
+    border-radius: var(--radius);
+  }
+
+  .amistad-name {
+    font-size: 1.5rem;
+  }
+
+  .amistad-desc {
+    font-size: 0.85rem;
+  }
+
+  /* HIJA */
+  #hija {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 72px 5vw;
+  }
+
+  .hija-img-wrap {
+    height: 300px;
+    border-radius: var(--radius);
+  }
+
+  .pull-quote {
+    margin-top: 1.8rem;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .pull-quote p {
+    font-size: 1.05rem;
+  }
+
+  /* ACCIDENTE */
+  #accidente {
+    padding: 72px 5vw;
+  }
+
+  .accidente-inner {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .rip-date {
+    font-size: clamp(1.1rem, 4vw, 2rem);
+    letter-spacing: 0.2em;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-dates {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .timeline-dates::before {
+    display: none;
+  }
+
+  .date-event {
+    width: 100%;
+    max-width: 280px;
+    padding: 0;
+  }
+
+  /* LEGADO */
+  #legado {
+    padding: 72px 5vw;
+  }
+
+  .legado-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .legacy-card {
+    padding: 1.5rem 1.4rem;
+  }
+
+  .legacy-icon {
+    font-size: 2rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .legacy-title {
+    font-size: 1.05rem;
+  }
+
+  .legacy-text {
+    font-size: 0.88rem;
+  }
+
+  .escudo-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    text-align: left;
+  }
+
+  .escudo-img {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+  }
+
+  /* RKT BAND */
+  .rkt-band {
+    padding: 22px 5vw;
+  }
+
+  .rkt-marquee {
+    font-size: 1.1rem;
+    gap: 2rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 56px 5vw 36px;
+  }
+
+  .footer-name {
+    font-size: clamp(2.5rem, 10vw, 5rem);
+  }
+
+  .footer-quote {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    max-width: 100%;
+  }
+
+  .footer-sub {
+    font-size: 0.82rem;
+    letter-spacing: 0.07em;
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-size: clamp(2rem, 7vw, 4rem);
+  }
+
+  .body-text {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  /* DIVIDER */
+  .divider {
+    margin: 0 5vw;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   580px — MÓVIL ESTÁNDAR
+────────────────────────────────────────────────────────────── */
+@media (max-width: 580px) {
+
+  /* NAV */
+  nav {
+    top: 8px;
+    width: 88%;
+    height: 50px;
+    padding: 0 1rem;
+  }
+
+  /* HERO */
+  #hero {
+    padding: 0 5vw 48px;
+  }
+
+  .hero-name {
+    font-size: clamp(3.8rem, 20vw, 7rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-quote {
+    font-size: 0.95rem;
+    padding-left: 0.9rem;
+  }
+
+  .hero-bg {
+    background:
+      linear-gradient(160deg, rgba(13,122,60,.45) 0%, rgba(0,0,0,.0) 50%),
+      linear-gradient(0deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.4) 55%, transparent 100%);
+  }
+
+  /* SECCIONES */
+  section {
+    padding: 60px 5vw;
+  }
+
+  /* QUIEN */
+  .quien-img-wrap {
+    height: 260px;
+  }
+
+  .born-badge {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* CARRERA */
+  .carrera-img-wrap {
+    height: 260px;
+  }
+
+  /* TAMO */
+  .tamo-title {
+    font-size: clamp(2.8rem, 15vw, 5rem);
+  }
+
+  .tamo-img-wrap {
+    height: 260px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+  }
+
+  .metric-card {
+    padding: 1.1rem 1rem;
+  }
+
+  .metric-val {
+    font-size: 1.6rem;
+  }
+
+  .metric-label {
+    font-size: 0.7rem;
+  }
+
+  /* AMISTADES */
+  .amistad-card {
+    height: 320px;
+  }
+
+  .amistad-overlay {
+    padding: 1.5rem;
+  }
+
+  .amistad-name {
+    font-size: 1.3rem;
+  }
+
+  /* HIJA */
+  .hija-img-wrap {
+    height: 260px;
+  }
+
+  /* ACCIDENTE */
+  .date-chip {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+  }
+
+  .accidente-inner .body-text {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  /* LEGADO */
+  .legado-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .legacy-card {
+    padding: 1.4rem 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .legacy-card::before {
+    width: 3px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, var(--green), var(--yellow));
+    opacity: 1;
+  }
+
+  .legacy-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    min-width: 32px;
+    padding-top: 2px;
+  }
+
+  .legacy-title {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .escudo-section {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem;
+  }
+
+  .escudo-img {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+  }
+
+  .escudo-text {
+    font-size: 0.88rem;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    padding: 30px 5vw;
+  }
+
+  .stat-item {
+    flex: 0 0 50%;
+    padding: 1.5rem 0.75rem;
+  }
+
+  .stat-num {
+    font-size: 2.8rem;
+  }
+
+  .stat-desc {
+    font-size: 0.75rem;
+  }
+
+  /* RKT BAND */
+  .rkt-marquee {
+    font-size: 1rem;
+    gap: 1.5rem;
+    animation-duration: 15s;
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-size: clamp(1.9rem, 8vw, 3.2rem);
+    margin-bottom: 1.2rem;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+  }
+
+  .body-text {
+    font-size: 0.97rem;
+    line-height: 1.75;
+  }
+
+  /* TIMELINE */
+  .tl-year {
+    font-size: 0.75rem;
+  }
+
+  .tl-text {
+    font-size: 0.89rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px 5vw 30px;
+  }
+
+  .footer-name {
+    font-size: clamp(2rem, 13vw, 4rem);
+  }
+
+  .footer-quote {
+    font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+    padding: 0 0.5rem;
+  }
+
+  .footer-years {
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+  }
+
+  .footer-sub {
+    font-size: 0.78rem;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   400px — MÓVIL PEQUEÑO (iPhone SE, Galaxy A, etc.)
+────────────────────────────────────────────────────────────── */
+@media (max-width: 400px) {
+
+  nav {
+    top: 6px;
+    width: 86%;
+    height: 46px;
+  }
+
+  #hero {
+    padding: 0 4vw 40px;
+  }
+
+  .hero-name {
+    font-size: clamp(3.2rem, 22vw, 5.5rem);
+  }
+
+  .hero-quote {
+    font-size: 0.88rem;
+  }
+
+  section {
+    padding: 52px 4vw;
+  }
+
+  .section-title {
+    font-size: clamp(1.7rem, 9vw, 2.8rem);
+  }
+
+  .quien-img-wrap,
+  .carrera-img-wrap,
+  .tamo-img-wrap,
+  .hija-img-wrap {
+    height: 230px;
+  }
+
+  .amistad-card {
+    height: 280px;
+  }
+
+  .amistad-name {
+    font-size: 1.1rem;
+  }
+
+  .tamo-title {
+    font-size: clamp(2.5rem, 17vw, 4.2rem);
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metric-val {
+    font-size: 1.4rem;
+  }
+
+  .legacy-card {
+    padding: 1.2rem 1rem;
+    gap: 1rem;
+  }
+
+  .legacy-icon {
+    font-size: 1.6rem;
+  }
+
+  .legacy-title {
+    font-size: 0.95rem;
+  }
+
+  .legacy-text {
+    font-size: 0.83rem;
+  }
+
+  .rkt-marquee {
+    font-size: 0.9rem;
+    gap: 1.2rem;
+  }
+
+  .footer-name {
+    font-size: clamp(1.8rem, 15vw, 3.5rem);
+  }
+
+  .footer-quote {
+    font-size: 0.9rem;
+  }
+
+  .escudo-section {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .escudo-img {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+  }
+
+  .escudo-text {
+    font-size: 0.82rem;
+  }
+
+  .pull-quote {
+    padding: 1rem 1.2rem;
+  }
+
+  .pull-quote p {
+    font-size: 0.88rem;
+  }
+
+  .born-badge {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .date-chip {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .rip-date {
+    font-size: clamp(0.95rem, 5vw, 1.5rem);
+    letter-spacing: 0.14em;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   UTILIDADES RESPONSIVE EXTRA
+   Scroll reveal más rápido en móvil (less janky)
+────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    transition-duration: 0.5s;
+    transform: translateY(24px);
+  }
+
+  .reveal-left  { transform: translateX(-28px); }
+  .reveal-right { transform: translateX( 28px); }
+
+  .reveal.visible,
+  .reveal-left.visible,
+  .reveal-right.visible {
+    transform: translate(0);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   ACCESIBILIDAD: reduce motion
+────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .rkt-marquee {
+    animation: none;
+  }
+
+  .hero-scroll .line {
+    animation: none;
+  }
+
+  .footer-heart {
+    animation: none;
+  }
+}
 
 
 
@@ -1025,4 +1773,419 @@ nav.scrolled {
   font-weight: 700;
   margin-bottom: 0.5rem;
   font-family: var(--font-display);
+}
+
+
+
+
+
+/* ──────────────────────────────────────────────────────────────
+   HAMBURGER BUTTON (oculto en desktop)
+────────────────────────────────────────────────────────────── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.nav-toggle:hover {
+  background: rgba(255, 212, 0, 0.1);
+  border-color: rgba(255, 212, 0, 0.3);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Animación X cuando está abierto */
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   MENÚ MOBILE DESPLEGABLE
+────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  nav {
+    top: 12px;
+    width: 92%;
+    height: 54px;
+    padding: 0 1.2rem;
+    border-radius: 16px;
+    /* Cuando el menú está abierto, la nav se expande */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-radius 0.35s ease,
+                height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Cuando está abierto: la nav crece hacia abajo */
+  nav.menu-open {
+    border-radius: 20px;
+    height: auto;
+    padding-bottom: 1rem;
+    background: rgba(10, 10, 10, 0.97);
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-top: 0;
+  }
+
+  /* Row superior dentro del nav open */
+  nav.menu-open .nav-logo,
+  nav.menu-open .nav-toggle {
+    margin-top: 0;
+  }
+
+  /* La fila superior siempre tiene 54px de altura */
+  .nav-logo {
+    height: 54px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+    height: 54px;
+    width: 40px;
+    background: none;
+    border: none;
+    border-radius: 0;
+  }
+
+  .nav-toggle:hover {
+    background: none;
+  }
+
+  /* Links: ocultos por defecto en mobile */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease;
+  }
+
+  /* Links visibles cuando menú abierto */
+  nav.menu-open .nav-links {
+    max-height: 400px;
+    opacity: 1;
+    padding-top: 0.5rem;
+  }
+
+  .nav-links li {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 8px;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:active {
+    color: var(--yellow);
+    background: rgba(255, 212, 0, 0.07);
+    padding-left: 16px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   580px y menos — nav más compacta
+────────────────────────────────────────────────────────────── */
+@media (max-width: 580px) {
+  nav {
+    top: 8px;
+    width: 88%;
+    height: 50px;
+  }
+
+  .nav-logo {
+    height: 50px;
+    font-size: 1.1rem;
+  }
+
+  .nav-toggle {
+    height: 50px;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    padding: 12px 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  nav {
+    top: 6px;
+    width: 86%;
+    height: 46px;
+  }
+
+  .nav-logo {
+    height: 46px;
+    font-size: 1rem;
+  }
+
+  .nav-toggle {
+    height: 46px;
+  }
+}
+
+
+
+
+
+/* ═══════════════════════════════════════════════════════
+   NAV — CSS DEFINITIVO (sin duplicados)
+   Reemplazá TODO lo que tenga que ver con nav en tu CSS
+   ═══════════════════════════════════════════════════════ */
+
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+  z-index: 1000;
+  height: 68px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: top 0.4s ease, background 0.4s ease,
+              border-radius 0.35s ease, height 0.4s ease;
+}
+
+nav.scrolled {
+  top: 10px;
+  background: rgba(10, 10, 10, 0.97);
+}
+
+/* ── Logo ── */
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-decoration: none;
+  z-index: 10;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.nav-logo .accent { color: #ffd400; }
+
+/* ── Links desktop ── */
+.nav-links {
+  display: flex;
+  gap: 0.2rem;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 50px;
+  transition: color 0.25s ease, background 0.25s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: #ffd400;
+  background: rgba(255, 212, 0, 0.08);
+}
+
+/* ── Hamburger (oculto en desktop) ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  z-index: 10;
+  transition: border-color 0.25s ease;
+}
+
+.nav-toggle:hover {
+  border-color: rgba(255, 212, 0, 0.5);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 17px;
+  height: 1.5px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.25s ease;
+  transform-origin: center;
+}
+
+/* X activo */
+.nav-toggle.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+
+/* ══════════════════════════════════════════
+   RESPONSIVE NAV — 768px y menor
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  nav {
+    top: 10px;
+    width: 92%;
+    height: 54px;
+    padding: 0 1rem 0 1.2rem;
+    border-radius: 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
+  /* Logo y toggle siempre en la fila superior */
+  .nav-logo {
+    height: 54px;
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+  }
+
+  /* Mostrar hamburger */
+  .nav-toggle {
+    display: flex;
+    height: 54px;
+    width: 44px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .nav-toggle:hover {
+    border: none;
+    background: transparent;
+  }
+
+  /* Links: colapsar por defecto */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    gap: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease 0.05s;
+  }
+
+  /* Menú abierto */
+  nav.menu-open {
+    height: auto;
+    border-radius: 20px;
+    background: rgba(8, 8, 8, 0.98);
+    padding-bottom: 0.8rem;
+    overflow: visible;
+  }
+
+  nav.menu-open .nav-links {
+    max-height: 360px;
+    opacity: 1;
+  }
+
+  .nav-links li {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-links li:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 0.2rem;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 13px 10px;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    transition: color 0.2s ease, padding-left 0.2s ease, background 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:active {
+    color: #ffd400;
+    background: rgba(255, 212, 0, 0.06);
+    padding-left: 18px;
+  }
+}
+
+@media (max-width: 580px) {
+  nav        { top: 8px; width: 90%; height: 50px; }
+  .nav-logo  { height: 50px; font-size: 1.15rem; }
+  .nav-toggle{ height: 50px; }
+}
+
+@media (max-width: 400px) {
+  nav        { top: 6px; width: 88%; height: 46px; }
+  .nav-logo  { height: 46px; font-size: 1.05rem; }
+  .nav-toggle{ height: 46px; }
 }

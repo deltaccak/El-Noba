@@ -1,4 +1,53 @@
-    // ── Scroll reveal ──────────────────────────────────────
+   /* ═══════════════════════════════════════════════════════════════
+   HAMBURGER MENU — pegá esto en script.js
+   ═══════════════════════════════════════════════════════════════ */
+
+// ── Hamburger toggle ──────────────────────────────────────────
+const navToggle = document.querySelector('.nav-toggle');
+const nav       = document.querySelector('nav');
+
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    nav.classList.toggle('menu-open');
+  });
+
+  // Cerrar al hacer click en un link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      nav.classList.remove('menu-open');
+    });
+  });
+
+  // Cerrar al hacer click fuera del nav
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target)) {
+      navToggle.classList.remove('active');
+      nav.classList.remove('menu-open');
+    }
+  });
+}
+
+// ── Nav scrolled class ─────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   // ── Scroll reveal ──────────────────────────────────────
     const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -11,21 +60,3 @@
 
     revealEls.forEach(el => io.observe(el));
 
-    // ── Nav background on scroll ───────────────────────────
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        nav.style.background = 'rgba(10,10,10,.97)';
-      } else {
-        nav.style.background = 'rgba(10,10,10,.85)';
-      }
-    }, { passive: true });
-
-    // ── Parallax on hero image ─────────────────────────────
-    const heroBg = document.querySelector('.hero-img');
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if (y < window.innerHeight) {
-        heroBg.style.transform = `translateY(${y * 0.3}px)`;
-      }
-    }, { passive: true });
