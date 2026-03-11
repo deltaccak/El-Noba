@@ -3,13 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El Noba - Lautaro Coronel</title>
+
+  <!-- SEO básico -->
+  <title>El Noba | Historia de Lautaro Coronel, ícono del RKT argentino</title>
+
+  <meta name="description" content="Sitio conmemorativo de El Noba (Lautaro Coronel), cantante de RKT argentino nacido en Florencio Varela. Su historia, carrera musical, 'Tamo Chelo', amistades con L-Gante y La Joaqui, su legado y su impacto en la música urbana." />
+
+  <meta name="keywords" content="El Noba, Lautaro Coronel, RKT argentino, Tamo Chelo, cantante argentino, Florencio Varela, L-Gante, La Joaqui, música urbana argentina, RKT música, historia de El Noba" />
+
+  <meta name="author" content="Sitio homenaje a El Noba" />
+
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (para redes sociales) -->
+  <meta property="og:title" content="El Noba | Historia de Lautaro Coronel" />
+  <meta property="og:description" content="Conocé la historia de El Noba, el artista de RKT que marcó una generación con 'Tamo Chelo'. Un homenaje a su vida, su música y su legado." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://el-noba.vercel.app/noba1.webp" />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="El Noba | Historia de Lautaro Coronel">
+  <meta name="twitter:description" content="La historia completa de El Noba, referente del RKT argentino." />
+  <meta name="twitter:image" content="https://el-noba.vercel.app/noba1.webp">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" />
+  <!-- Preconnect fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Barlow:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="logo.png" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
+  <!-- Datos estructurados para Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "El Noba",
+    "alternateName": "Lautaro Coronel",
+    "birthDate": "2000-01-15",
+    "deathDate": "2022-06-03",
+    "birthPlace": {
+      "@type": "Place",
+      "name": "Florencio Varela, Buenos Aires, Argentina"
+    },
+    "description": "El Noba fue un cantante argentino del género RKT que alcanzó popularidad con su canción 'Tamo Chelo'.",
+    "genre": "RKT",
+    "image": "noba1.webp"
+  }
+  </script>
 
 </head>
 
@@ -427,39 +474,9 @@
     </p>
   </footer>
 
-  <!-- ═══════════════════════════════════════  JS  ═══ -->
-  <script>
-    // ── Scroll reveal ──────────────────────────────────────
-    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
 
-    revealEls.forEach(el => io.observe(el));
 
-    // ── Nav background on scroll ───────────────────────────
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        nav.style.background = 'rgba(10,10,10,.97)';
-      } else {
-        nav.style.background = 'rgba(10,10,10,.85)';
-      }
-    }, { passive: true });
+<script src="script.js"></script>
 
-    // ── Parallax on hero image ─────────────────────────────
-    const heroBg = document.querySelector('.hero-img');
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if (y < window.innerHeight) {
-        heroBg.style.transform = `translateY(${y * 0.3}px)`;
-      }
-    }, { passive: true });
-  </script>
 </body>
 </html>
