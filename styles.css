@@ -2189,3 +2189,33 @@ nav.scrolled {
   .nav-logo  { height: 46px; font-size: 1.05rem; }
   .nav-toggle{ height: 46px; }
 }
+
+
+
+
+
+
+/* ===== SCROLLBAR PARA CHROME, EDGE, SAFARI, OPERA ===== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a; /* fondo del scroll */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ff66, #009933);
+  border-radius: 5px;
+  border: 2px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #33ff88, #00cc66);
+}
+
+/* ===== SCROLLBAR PARA FIREFOX ===== */
+* {
+  scrollbar-width: 500px; /* Tamaño del scrollbar */
+  scrollbar-color: #00cc66 #0a0a0a6f;
+}
